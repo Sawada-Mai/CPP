@@ -4,7 +4,7 @@ static void print_upper(char *str)
 {
 	while (*str)
 	{
-		std::cout << static_cast<unsigned char>(std::toupper(*str));
+		std::cout << static_cast<char>(std::toupper(*str));
 		str++;
 	}
 }
