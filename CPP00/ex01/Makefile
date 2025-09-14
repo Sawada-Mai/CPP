@@ -18,3 +18,5 @@ clean:
 fclean: clean
 
 re: fclean all
+
+.PHONY: fclean re crean all
