@@ -2,6 +2,7 @@
 #define PHONEBOOK_H
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 
 #include "Contact.hpp"
@@ -18,7 +19,7 @@ class PhoneBook
 		PhoneBook();
 		~PhoneBook();
 		void	add_contact();
-		// void	search_contact();
+		void	search_contact();
 };
 
 
