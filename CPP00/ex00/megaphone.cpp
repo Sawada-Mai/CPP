@@ -1,13 +1,13 @@
 #include <iostream>
 
-static void	print_upper(char *str) {
+static void	print_upper(char* str) {
 	while (*str) {
 		std::cout << static_cast<char>(std::toupper(*str));
 		str++;
 	}
 }
 
-int	main(int argc, char *argv[])
+int	main(int argc, char* argv[])
 {
 	int i;
 

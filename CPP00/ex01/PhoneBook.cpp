@@ -8,7 +8,7 @@ PhoneBook::PhoneBook() {
 PhoneBook::~PhoneBook() {
 }
 
-bool	ft_isdigit(const std::string &str) {
+static bool	ft_isdigit(const std::string& str) {
 	std::string::size_type	i;
 
 	i = 0;
@@ -22,7 +22,7 @@ bool	ft_isdigit(const std::string &str) {
 	return true;
 }
 
-bool	prompt(const char *label, std::string& out, bool (*validate)(const std::string&)) {
+static bool	prompt(const char* label, std::string& out, bool (*validate)(const std::string&)) {
 	while (true) {
 		std::cout << label << std::flush;
 		if (!std::getline(std::cin, out)) {
@@ -79,7 +79,7 @@ void	PhoneBook::add_contact() {
 	std::cout << "Contact added successfully!" << std::endl;
 }
 
-void	print_header() {
+static void	print_header() {
 	std::cout << "---------------------------------------------" << std::endl;
 	std::cout << std::setw(10) << "INDEX" << "|"
 						<< std::setw(10) << "FIRST NAME" << "|"
@@ -88,7 +88,7 @@ void	print_header() {
 	std::cout << "---------------------------------------------" << std::endl;
 }
 
-std::string format_change(const std::string& str)
+static std::string	format_change(const std::string& str)
 {
 	if (str.length() > 9) {
 		return str.substr(0,9) + ".";
