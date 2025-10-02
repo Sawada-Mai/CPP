@@ -1,13 +1,17 @@
-#include "Zombie.hpp"
+// Copyright 2025 msawada
 
-Zombie::Zombie(const std::string name)	{
-	name_ = name;
+#include <string>
+#include <iostream>
+#include "ex00/Zombie.hpp"
+
+Zombie::Zombie(const std::string name) {
+  name_ = name;
 }
 
 Zombie::~Zombie() {
 }
 
 
-void	Zombie::announce() {
-	std::cout << name_ << ": BraiiiiiiinnnzzzZ..." << std::endl;
+void Zombie::announce() {
+  std::cout << name_ << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

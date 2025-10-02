@@ -1,8 +1,11 @@
-#include "Zombie.hpp"
+// Copyright 2025 msawada
 
-void	randomChump(std::string name) {
-	Zombie	zombie(name);
+#include <string>
+#include "ex00/Zombie.hpp"
 
-	zombie.announce();
-	return ;
+void randomChump(std::string name) {
+  Zombie zombie(name);
+
+  zombie.announce();
+  return;
 }

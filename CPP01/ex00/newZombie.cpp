@@ -1,8 +1,11 @@
-#include "Zombie.hpp"
+// Copyright 2025 msawada
 
-Zombie*	newZombie(std::string name) {
-	Zombie*	zombie;
+#include <string>
+#include "ex00/Zombie.hpp"
 
-	zombie = new Zombie(name);
-	return zombie;
+Zombie* newZombie(std::string name) {
+  Zombie* zombie;
+
+  zombie = new Zombie(name);
+  return zombie;
 }
