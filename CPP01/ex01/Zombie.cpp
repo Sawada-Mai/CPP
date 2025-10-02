@@ -1,4 +1,8 @@
-#include "Zombie.hpp"
+// Copyright 2025 msawada
+
+#include <string>
+#include <iostream>
+#include "ex01/Zombie.hpp"
 
 Zombie::Zombie() {
 }
@@ -7,10 +11,10 @@ Zombie::~Zombie() {
 }
 
 
-void	Zombie::set_name(std::string name) {
-	name_ = name;
+void Zombie::set_name(std::string name) {
+  name_ = name;
 }
 
-void	Zombie::announce() {
-	std::cout << name_ << ": BraiiiiiiinnnzzzZ..." << std::endl;
+void Zombie::announce() {
+  std::cout << name_ << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

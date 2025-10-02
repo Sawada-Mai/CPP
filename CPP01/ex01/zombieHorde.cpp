@@ -1,11 +1,14 @@
-#include "Zombie.hpp"
+// Copyright 2025 msawada
 
-Zombie*	zombieHorde(int N, std::string name) {
-	Zombie* horde;
+#include <string>
+#include "ex01/Zombie.hpp"
 
-	horde = new Zombie[N];
-	for (int i = 0; i < N; i++) {
-		horde[i].set_name(name);
-	}
-	return horde;
+Zombie* zombieHorde(int N, std::string name) {
+  Zombie* horde;
+
+  horde = new Zombie[N];
+  for (int i = 0; i < N; i++) {
+    horde[i].set_name(name);
+  }
+  return horde;
 }
