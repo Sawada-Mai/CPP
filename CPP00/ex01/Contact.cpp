@@ -1,5 +1,7 @@
-#include "ex01/Contact.hpp"
+// Copyright 2025 msawada
+
 #include <string>
+#include "ex01/Contact.hpp"
 
 Contact::Contact() {
 }
@@ -44,6 +46,6 @@ const std::string& Contact::GetPhoneNumber() const {
   return phone_number_;
 }
 
-const std::string& Contact::get_darkest_secret() const {
+const std::string& Contact::GetDarkestSecret() const {
   return darkest_secret_;
 }

@@ -1,27 +1,28 @@
-#include "PhoneBook.hpp"
+// Copyright 2025 msawada
 
-int	main(void) {
-	PhoneBook	PhoneBook;
-	std::string	user_input;
+#include <iostream>
+#include <string>
+#include "ex01/PhoneBook.hpp"
 
-	while (true) {
-		std::cout << "Type a command: ADD, SEARCH or EXIT" << std::endl;
-		if (!std::getline(std::cin, user_input)) {
-			break;
-		}
-		if (user_input == "ADD") {
-			PhoneBook.add_contact();
-		}
-		else if (user_input == "SEARCH") {
-			PhoneBook.search_contact();
-		}
-		else if (user_input == "EXIT") {
-			std::cout << "Bye!" << std::endl;
-			break;
-		}
-		else {
-			std::cout << "Command not found\nPlease choise ADD or SEARCH or EXIT" << std::endl;
-		}
-	}
-	return 0;
+int main(void) {
+  PhoneBook PhoneBook;
+  std::string user_input;
+
+  while (true) {
+    std::cout << "Type a command: ADD, SEARCH or EXIT" << std::endl;
+    if (!std::getline(std::cin, user_input)) {
+      break;
+    }
+    if (user_input == "ADD") {
+      PhoneBook.add_contact();
+    } else if (user_input == "SEARCH") {
+      PhoneBook.search_contact();
+    } else if (user_input == "EXIT") {
+      std::cout << "Bye!" << std::endl;
+      break;
+    } else {
+      std::cout << "Command not found\n" << std::endl;
+    }
+  }
+  return 0;
 }

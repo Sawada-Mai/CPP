@@ -1,3 +1,5 @@
+// Copyright 2025 msawada
+
 #include <iostream>
 
 static void PrintUpper(char* str) {
