@@ -1,3 +1,5 @@
+// Copyright 2025 msawada
+
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 
@@ -10,16 +12,16 @@
 
 
 class PhoneBook {
-  private:
-    static const int	MAX_CONTACT_SIZE = 8;
-    Contact	list_[MAX_CONTACT_SIZE];
-    int	size_;
-    int	index_;
-  public:
-    PhoneBook();
-    ~PhoneBook();
-    void	add_contact();
-    void	search_contact();
+ private:
+  static const int MAX_CONTACT_SIZE = 8;
+  Contact list_[MAX_CONTACT_SIZE];
+  int size_;
+  int index_;
+ public:
+  PhoneBook();
+  ~PhoneBook();
+  void add_contact();
+  void search_contact();
 };
 
 
