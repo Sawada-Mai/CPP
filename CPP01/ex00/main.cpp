@@ -1,6 +1,6 @@
 // Copyright 2025 msawada
 
-#include "Zombie.hpp"
+#include "ex00/Zombie.hpp"
 
 int main(void) {
   Zombie* zombie;

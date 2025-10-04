@@ -3,13 +3,7 @@
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 
-#include <iostream>
-#include <iomanip>
-#include <string>
-#include <cstdlib>
-
 #include "ex01/Contact.hpp"
-
 
 class PhoneBook {
  private:

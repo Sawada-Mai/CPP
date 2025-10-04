@@ -1,7 +1,7 @@
 // Copyright 2025 msawada
 
-#include <string>
 #include <iostream>
+#include <string>
 #include "ex01/Zombie.hpp"
 
 Zombie::Zombie() {
