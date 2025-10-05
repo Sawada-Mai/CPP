@@ -1,5 +1,6 @@
 // Copyright 2025 msawada
 
+#include <string>
 #include "ex03/Weapon.hpp"
 
 Weapon::Weapon(const std::string& type)

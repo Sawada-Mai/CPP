@@ -6,8 +6,7 @@
 #include <string>
 #include "ex03/Weapon.hpp"
 
-class HumanA
-{
+class HumanA {
  private:
   std::string name_;
   Weapon& weapon_;

@@ -6,13 +6,12 @@
 #include <string>
 #include "ex03/Weapon.hpp"
 
-class HumanB
-{
+class HumanB {
  private:
   std::string name_;
   Weapon* weapon_;
  public:
-  HumanB(const std::string& name);
+  explicit HumanB(const std::string& name);
   ~HumanB();
   void setWeapon(Weapon& weapon);
   void attack();
