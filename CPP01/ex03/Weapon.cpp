@@ -2,10 +2,16 @@
 
 #include "ex03/Weapon.hpp"
 
-Weapon::Weapon()
-{
+Weapon::Weapon(const std::string& type)
+  : type_(type) {}
+
+Weapon::~Weapon() {
 }
 
-Weapon::~Weapon()
-{
+void Weapon::setType(const std::string& type) {
+  type_ = type;
+}
+
+const std::string& Weapon::getType() const {
+  return type_;
 }

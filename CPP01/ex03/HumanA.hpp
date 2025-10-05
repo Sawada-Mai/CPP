@@ -4,14 +4,17 @@
 #define HUMANA_HPP
 
 #include <string>
+#include "ex03/Weapon.hpp"
 
 class HumanA
 {
-private:
- /* data */
-public:
- HumanA(/* args */);
- ~HumanA();
+ private:
+  std::string name_;
+  Weapon& weapon_;
+ public:
+  HumanA(const std::string& name, Weapon& weapon);
+  ~HumanA();
+  void attack();
 };
 
 

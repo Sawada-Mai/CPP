@@ -4,14 +4,18 @@
 #define HUMANB_HPP
 
 #include <string>
+#include "ex03/Weapon.hpp"
 
 class HumanB
 {
  private:
-  /* data */
+  std::string name_;
+  Weapon* weapon_;
  public:
-  HumanB(/* args */);
+  HumanB(const std::string& name);
   ~HumanB();
+  void setWeapon(Weapon& weapon);
+  void attack();
 };
 
 
