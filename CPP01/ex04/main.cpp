@@ -7,14 +7,21 @@
 
 int main(void) {
   std::ifstream ifs("test.txt");
-  if(!ifs) {
+  std::ofstream file("test.replace");
+
+  if (!ifs) {
+    std::cerr << "Error: file can not open.";
+    return 1;
+  }
+  if (!file) {
     std::cerr << "Error: file can not open.";
     return 1;
   }
   std::string line;
-  while (std::getline(ifs, line))
-  {
+  std::string str;
+  while (std::getline(ifs, line)) {
     std::cout << line << std::endl;
+    str = MakeFileLine(line);
+    file << str << std::endl;
   }
-  
 }
