@@ -7,8 +7,8 @@
 
 std::string ReplaceLine(const std::string& line,
     const std::string& s1, const std::string& s2) {
-  if (s1.empty() || s2.empty() || s1 == s2)
-    return NULL;
+  if (s1.empty() || s2.empty())
+    return "";
   size_t i = 0;
   size_t hit;
   std::string result;
@@ -22,19 +22,21 @@ std::string ReplaceLine(const std::string& line,
 }
 
 int main(int argc, char** argv) {
-  std::ifstream ifs("test.txt");
-  std::ofstream file("test.replace");
   if (argc != 3) {
+    std::cerr << "./replace <s1> <s2>" << std::endl;
     return 1;
   }
-  if (!ifs || !file) {
-    std::cerr << "Error: file can not open.";
+  std::ifstream ifs("test.txt");
+  std::ofstream ofs("test.replace");
+  if (!ifs || !ofs) {
+    std::cerr << "Error: file can not open." << std::endl;
     return 1;
   }
   std::string line;
-  std::string str;
   while (std::getline(ifs, line)) {
-    str = ReplaceLine(line, argv[1], argv[2]);
+    ofs << ReplaceLine(line, argv[1], argv[2]) << "\n";
   }
+  ifs.close();
+  ofs.close();
   return 0;
 }

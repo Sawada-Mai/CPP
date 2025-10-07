@@ -9,4 +9,4 @@ int main(void) {
   zombie->announce();
   randomChump("bbb");
   delete zombie;
-  }
+}

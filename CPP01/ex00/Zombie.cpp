@@ -4,9 +4,8 @@
 #include <string>
 #include "ex00/Zombie.hpp"
 
-Zombie::Zombie(const std::string name) {
-  name_ = name;
-}
+Zombie::Zombie(const std::string name)
+  :name_(name) {}
 
 Zombie::~Zombie() {
 }
