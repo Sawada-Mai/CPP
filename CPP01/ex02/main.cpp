@@ -9,10 +9,11 @@ int main(void) {
   std::string* stringPTR = &str;
   std::string& stringREF = str;
 
-  std::cout<< std::setw(11) << "String: " << &str << std::endl;
-  std::cout<< std::setw(11) << "stringPTR: " << stringPTR << std::endl;
-  std::cout<< std::setw(11) << "stringREF: " << &stringREF << "\n" << std::endl;
+  std::cout << std::setw(11) << "String: " << &str << std::endl;
+  std::cout << std::setw(11) << "stringPTR: " << stringPTR << std::endl;
+  std::cout << std::setw(11) << "stringREF: " << &stringREF << std::endl;
 
-  std::cout << "stringPTR: " << *stringPTR << std::endl;
-  std::cout << "stringREF: " << stringREF << std::endl;
+  std::cout << std::setw(11) << "str: " << str << std::endl;
+  std::cout << std::setw(11) << "stringPTR: " << *stringPTR << std::endl;
+  std::cout << std::setw(11) << "stringREF: " << stringREF << std::endl;
 }

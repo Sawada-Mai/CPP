@@ -2,6 +2,7 @@
 
 #include <fstream>
 #include <string>
+#include <sstream>
 #include <iostream>
 
 
@@ -22,20 +23,24 @@ std::string ReplaceLine(const std::string& line,
 }
 
 int main(int argc, char** argv) {
-  if (argc != 3) {
-    std::cerr << "./replace <s1> <s2>" << std::endl;
+  if (argc != 4) {
+    std::cerr << "./replace <filename> <s1> <s2>" << std::endl;
     return 1;
   }
-  std::ifstream ifs("test.txt");
-  std::ofstream ofs("test.replace");
-  if (!ifs || !ofs) {
-    std::cerr << "Error: file can not open." << std::endl;
+  std::ifstream ifs(argv[1]);
+  if (!ifs) {
+    std::cerr << "Error: input_file can not open." << std::endl;
     return 1;
   }
-  std::string line;
-  while (std::getline(ifs, line)) {
-    ofs << ReplaceLine(line, argv[1], argv[2]) << "\n";
+  std::string output_name = std::string(argv[1])+ ".replace";
+  std::ofstream ofs(output_name.c_str());
+  if (!ofs) {
+    std::cerr << "Error: output_file can not open." << std::endl;
+    return 1;
   }
+  std::stringstream buf;
+  buf << ifs.rdbuf();
+  ofs << ReplaceLine(buf.str(), argv[2], argv[3]);
   ifs.close();
   ofs.close();
   return 0;

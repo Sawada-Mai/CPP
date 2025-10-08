@@ -8,6 +8,7 @@ Zombie::Zombie(const std::string name)
   :name_(name) {}
 
 Zombie::~Zombie() {
+  std::cout << name_ << " delete...\n";
 }
 
 
