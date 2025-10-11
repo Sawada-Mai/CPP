@@ -1,7 +1,7 @@
 // Copyright 2025 msawada
 
 #include <iostream>
-#include "Fixed.hpp"
+#include "ex00/Fixed.hpp"
 
 int main(void) {
   std::cout << "-----------Fixed a-----------\n";

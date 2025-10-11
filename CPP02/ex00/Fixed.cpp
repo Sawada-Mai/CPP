@@ -4,7 +4,7 @@
 #include <string>
 #include "ex00/Fixed.hpp"
 
-Fixed::Fixed() 
+Fixed::Fixed()
   : raw_bits_(0) {
   std::cout << "Default constructor called\n";
 }

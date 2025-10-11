@@ -1,9 +1,9 @@
 // Copyright 2025 msawada
 
 #include <iostream>
-#include "Fixed.hpp"
+#include "ex01/Fixed.hpp"
 
-int main( void ) {
+int main(void) {
   std::cout << "-----------Fixed a-----------\n";
   Fixed a;
   std::cout << "\n-----------Fixed b-----------\n";
@@ -11,7 +11,7 @@ int main( void ) {
   std::cout << "\n-----------Fixed c-----------\n";
   Fixed const c(42.42f);
   std::cout << "\n-----------Fixed d-----------\n";
-  Fixed const d( b );
+  Fixed const d(b);
 
   std::cout << "\n-----------a = Fixed(1234.4321f)-----------\n";
   a = Fixed(1234.4321f);

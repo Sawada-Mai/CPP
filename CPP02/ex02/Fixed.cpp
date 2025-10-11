@@ -5,18 +5,18 @@
 #include <string>
 #include "ex02/Fixed.hpp"
 
-Fixed::Fixed() 
+Fixed::Fixed()
   : raw_bits_(0) {
 }
 
 Fixed::~Fixed() {
 }
 
-Fixed::Fixed(const int num) 
+Fixed::Fixed(const int num)
   : raw_bits_(num << FRACTIONAL_BIT) {
 }
 
-Fixed::Fixed(const float num) 
+Fixed::Fixed(const float num)
   : raw_bits_(static_cast<int>(roundf(num * (1 << FRACTIONAL_BIT)))) {
 }
 
@@ -72,7 +72,7 @@ bool Fixed::operator!=(const Fixed& rhs) const {
   return raw_bits_ != rhs.raw_bits_;
 }
 
-//算術演算子のオーバーロード
+// 算術演算子のオーバーロード
 Fixed Fixed::operator+(const Fixed& rhs) const {
   Fixed result;
 
@@ -105,7 +105,7 @@ Fixed Fixed::operator/(const Fixed& rhs) const {
   return result;
 }
 
-//インクリメント・デクリメント
+// インクリメント・デクリメント
 Fixed& Fixed::operator++() {
   raw_bits_++;
   return *this;
@@ -128,7 +128,7 @@ Fixed Fixed::operator--(int) {
   return copy;
 }
 
-//min・max関数
+// min・max関数
 Fixed& Fixed::min(Fixed& a, Fixed& b) {
   return (a < b) ? a : b;
 }

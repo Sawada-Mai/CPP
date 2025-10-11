@@ -5,7 +5,7 @@
 #include <string>
 #include "ex01/Fixed.hpp"
 
-Fixed::Fixed() 
+Fixed::Fixed()
   : raw_bits_(0) {
   std::cout << "Default constructor called\n";
 }
@@ -14,12 +14,12 @@ Fixed::~Fixed() {
   std::cout << "Destructor called\n";
 }
 
-Fixed::Fixed(const int num) 
+Fixed::Fixed(const int num)
   : raw_bits_(num << FRACTIONAL_BIT) {
   std::cout << "Int constructor called\n";
 }
 
-Fixed::Fixed(const float num) 
+Fixed::Fixed(const float num)
   : raw_bits_(static_cast<int>(roundf(num * (1 << FRACTIONAL_BIT)))) {
   std::cout << "Float constructor called\n";
 }
