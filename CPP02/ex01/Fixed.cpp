@@ -20,7 +20,7 @@ Fixed::Fixed(const int num)
 }
 
 Fixed::Fixed(const float num) 
-  : raw_bits_(static_cast<float>(roundf(num * (1 << FRACTIONAL_BIT)))) {
+  : raw_bits_(static_cast<int>(roundf(num * (1 << FRACTIONAL_BIT)))) {
   std::cout << "Float constructor called\n";
 }
 
