@@ -1,4 +1,4 @@
-NAME = fixed
+NAME = claptrap
 
 SRC = main.cpp \
 			ClapTrap.cpp
@@ -7,7 +7,7 @@ OBJDIR = obj
 OBJ =  $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -Wshadow -I..
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -Wshadow -I.
 
 all: $(NAME)
 
