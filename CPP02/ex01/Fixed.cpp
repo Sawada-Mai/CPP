@@ -10,10 +10,6 @@ Fixed::Fixed()
   std::cout << "Default constructor called\n";
 }
 
-Fixed::~Fixed() {
-  std::cout << "Destructor called\n";
-}
-
 Fixed::Fixed(const int num)
   : raw_bits_(num << FRACTIONAL_BIT) {
   std::cout << "Int constructor called\n";
@@ -32,9 +28,13 @@ Fixed::Fixed(const Fixed& obj)
 Fixed&  Fixed::operator = (const Fixed& obj) {
   std::cout << "Copy assignment operator called\n";
   if (this != &obj) {
-    raw_bits_ = obj.getRawBits();
+    raw_bits_ = obj.raw_bits_;
   }
   return *this;
+}
+
+Fixed::~Fixed() {
+  std::cout << "Destructor called\n";
 }
 
 int Fixed::getRawBits() const {

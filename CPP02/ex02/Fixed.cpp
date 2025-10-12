@@ -9,9 +9,6 @@ Fixed::Fixed()
   : raw_bits_(0) {
 }
 
-Fixed::~Fixed() {
-}
-
 Fixed::Fixed(const int num)
   : raw_bits_(num << FRACTIONAL_BIT) {
 }
@@ -26,9 +23,12 @@ Fixed::Fixed(const Fixed& obj)
 
 Fixed&  Fixed::operator = (const Fixed& obj) {
   if (this != &obj) {
-    raw_bits_ = obj.getRawBits();
+    raw_bits_ = obj.raw_bits_;
   }
   return *this;
+}
+
+Fixed::~Fixed() {
 }
 
 int Fixed::getRawBits() const {
