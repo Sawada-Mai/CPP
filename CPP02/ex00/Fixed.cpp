@@ -10,7 +10,7 @@ Fixed::Fixed()
 }
 
 Fixed::Fixed(const Fixed& obj)
-  : raw_bits_(obj.raw_bits_) {
+  : raw_bits_(obj.getRawBits()) {
   std::cout << "Copy constructor called\n";
 }
 
