@@ -5,8 +5,7 @@
 
 #include <string>
 
-class ClapTrap
-{
+class ClapTrap {
  private:
   std::string name_;
   unsigned int hit_points_;
@@ -15,7 +14,7 @@ class ClapTrap
   ClapTrap();
 
  public:
-  ClapTrap(const std::string& name);
+  explicit ClapTrap(const std::string& name);
   ClapTrap(const ClapTrap& obj);
   ClapTrap& operator = (const ClapTrap& obj);
   ~ClapTrap();

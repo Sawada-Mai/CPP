@@ -1,11 +1,12 @@
 // Copyright 2025 msawada
 
 #include <iostream>
+#include <string>
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
 void PutLine(std::string str) {
-  if(str.empty()) {
+  if (str.empty()) {
     std::cout << "-----------------------\n" << std::endl;
     return;
   }
