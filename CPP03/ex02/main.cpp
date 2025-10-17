@@ -4,6 +4,7 @@
 #include <string>
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 void PutLine(std::string str) {
   if (str.empty()) {
@@ -14,15 +15,17 @@ void PutLine(std::string str) {
 }
 
 int main() {
-  ScavTrap a("a");
+  ClapTrap a("a");
   ScavTrap b("b");
-  ScavTrap c(a);
-  ScavTrap d("d");
+  FragTrap c("c");
+  FragTrap d("d");
 
-  d = a;
+  d = c;
 
   PutLine("Attack Action");
-  a.attack("b");
+  a.attack("a");
+  b.attack("b");
+  c.attack("c");
   PutLine("");
 
   PutLine("EP Check");
@@ -32,6 +35,10 @@ int main() {
   std::cout << d.GetName() << " EP=" << d.GetEnergyPoints() << "\n";
   PutLine("");
 
+  PutLine("Special Action");
+  b.guardGate();
+  c.highFivesGuys();
+  PutLine("");
 
   return 0;
 }

@@ -36,5 +36,19 @@ FragTrap::~FragTrap() {
   std::cout << " destructed." << std::endl;
 }
 
-void highFivesGuys(void) {
+void FragTrap::attack(const std::string& target) {
+  if (GetHitPoints() == 0 || GetEnergyPoints() == 0) {
+    PrintPrefix(GetName());
+    std::cout << " can't action." << std::endl;
+    return;
+  }
+  SetEnergyPoints(GetEnergyPoints() - 1);
+  PrintPrefix(GetName());
+  std::cout << " attacks " << target << ", causing "
+            << GetAttackDamage() << " points of damage!" << std::endl;
+}
+
+void FragTrap::highFivesGuys() {
+  PrintPrefix(GetName());
+  std::cout << " wants to high five everyone! " << std::endl;
 }
