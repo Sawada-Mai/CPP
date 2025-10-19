@@ -44,3 +44,11 @@ Dog::~Dog() {
 void Dog::makeSound() const {
   std::cout << std::setw(10) << DOG_PREFIX << "Woof" << std::endl;
 }
+
+void Dog::getBrain(int index) const {
+  std::cout << brain_->GetIdeas(index) << std::endl;
+}
+
+void Dog::setBrain(int index, const std::string& str) {
+  brain_->SetIdeas(index, str);
+}

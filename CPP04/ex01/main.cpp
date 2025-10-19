@@ -18,37 +18,18 @@ void PutLine(std::string str) {
 }
 
 int main() {
-  PutLine("meta");
-  const Animal* meta = new Animal();
-  std::cout << std::setw(10) << "Type: " << meta->getType() << " " << std::endl;
-  meta->makeSound();
-  PutLine("");
+  const size_t SIZE = 2;
+  const Animal* list[SIZE];
 
-  PutLine("Dog");
-  const Animal* j = new Dog();
-  std::cout << std::setw(10) << "Type: " << j->getType() << " " << std::endl;
-  j->makeSound();
-  PutLine("");
+  for(size_t i = 0; i < (SIZE / 2); i++) {
+    list[i] = new Dog;
+  }
+  for(size_t i = (SIZE / 2); i < SIZE; i++) {
+    list[i] = new Cat;
+  }
 
-  PutLine("Cat");
-  const Animal* i = new Cat();
-  std::cout << std::setw(10) << "Type: " << i->getType() << " " << std::endl;
-  i->makeSound();
-  PutLine("");
-
-  PutLine("Wrong Cat");
-  const WrongAnimal* c = new WrongCat();
-  std::cout << std::setw(10) << "Type: " << c->getType() << " " << std::endl;
-  c->makeSound();
-  PutLine("");
-
-  delete meta;
-  PutLine("");
-  delete j;
-  PutLine("");
-  delete i;
-  PutLine("");
-  delete c;
-
+  for (size_t i = 0; i < SIZE; i++) {
+    delete list[i];
+  }
   return 0;
 }

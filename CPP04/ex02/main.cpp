@@ -18,37 +18,20 @@ void PutLine(std::string str) {
 }
 
 int main() {
-  PutLine("meta");
-  const Animal* meta = new Animal();
-  std::cout << std::setw(10) << "Type: " << meta->getType() << " " << std::endl;
-  meta->makeSound();
-  PutLine("");
+  Cat a;
+  Dog b;
 
-  PutLine("Dog");
-  const Animal* j = new Dog();
-  std::cout << std::setw(10) << "Type: " << j->getType() << " " << std::endl;
-  j->makeSound();
-  PutLine("");
+  std::cout << a.getType() << std::endl;
+  std::cout << b.getType() << std::endl;
 
-  PutLine("Cat");
-  const Animal* i = new Cat();
-  std::cout << std::setw(10) << "Type: " << i->getType() << " " << std::endl;
-  i->makeSound();
-  PutLine("");
+  a.makeSound();
+  b.makeSound();
 
-  PutLine("Wrong Cat");
-  const WrongAnimal* c = new WrongCat();
-  std::cout << std::setw(10) << "Type: " << c->getType() << " " << std::endl;
-  c->makeSound();
-  PutLine("");
+  a.setBrain(0, "aaa");
+  a.getBrain(0);
 
-  delete meta;
-  PutLine("");
-  delete j;
-  PutLine("");
-  delete i;
-  PutLine("");
-  delete c;
+  b.setBrain(2, "bbb");
+  b.getBrain(2);
 
   return 0;
 }

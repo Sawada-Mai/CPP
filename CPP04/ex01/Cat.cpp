@@ -45,6 +45,10 @@ void Cat::makeSound() const {
   std::cout << std::setw(10) << CAT_PREFIX << "Meow" << std::endl;
 }
 
-const std::string& Cat::getBrain(int index) const {
-  return brain_->GetIdeas(index);
+void Cat::getBrain(int index) const {
+  std::cout << brain_->GetIdeas(index) << std::endl;
+}
+
+void Cat::setBrain(int index, const std::string& str) {
+  brain_->SetIdeas(index, str);
 }

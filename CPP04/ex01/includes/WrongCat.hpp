@@ -20,6 +20,8 @@ class WrongCat : public WrongAnimal{
   ~WrongCat();
 
   void makeSound() const;
+  void getBrain(int index) const;
+  void setBrain(int index, const std::string& str);
 };
 
 #endif

@@ -20,7 +20,8 @@ class Dog : public Animal{
   ~Dog();
 
   void makeSound() const;
-  const std::string& getBrain(int index) const;
+  void getBrain(int index) const;
+  void setBrain(int index, const std::string& str);
 };
 
 #endif
