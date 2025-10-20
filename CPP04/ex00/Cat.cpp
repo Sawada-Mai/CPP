@@ -17,8 +17,8 @@ Cat::Cat(const std::string& type)
   std::cout << std::setw(10) << CAT_PREFIX << "String constructor" << std::endl;
 }
 
-Cat::Cat(const Cat& other) {
-  *this = other;
+Cat::Cat(const Cat& other)
+  : Animal(other) {
   std::cout << std::setw(10) << CAT_PREFIX << "Copy constructor" << std::endl;
 }
 

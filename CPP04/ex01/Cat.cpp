@@ -20,16 +20,15 @@ Cat::Cat(const std::string& type)
   std::cout << std::setw(10) << CAT_PREFIX << "String constructor" << std::endl;
 }
 
-Cat::Cat(const Cat& other) : Animal(other) {
-  brain_ = new Brain(*other.brain_);
+Cat::Cat(const Cat& other)
+  : Animal(other), brain_(new Brain(*other.brain_)) {
   std::cout << std::setw(10) << CAT_PREFIX << "Copy constructor" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& other) {
   if (this != &other) {
     Animal::operator=(other);
-    delete brain_;
-    brain_ = new Brain(*other.brain_);
+    *brain_ = *other.brain_;
   }
   std::cout << std::setw(10) << CAT_PREFIX
             << "Copy assignment operator" << std::endl;
@@ -46,7 +45,7 @@ void Cat::makeSound() const {
 }
 
 void Cat::getBrain(int index) const {
-  std::cout << brain_->GetIdeas(index) << std::endl;
+  std::cout << std::setw(10) << CAT_PREFIX << brain_->GetIdeas(index) << std::endl;
 }
 
 void Cat::setBrain(int index, const std::string& str) {

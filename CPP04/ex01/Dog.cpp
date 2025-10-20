@@ -20,16 +20,15 @@ Dog::Dog(const std::string& type)
   std::cout << std::setw(10) << DOG_PREFIX << "String constructor" << std::endl;
 }
 
-Dog::Dog(const Dog& other) : Animal(other) {
-  brain_ = new Brain(*other.brain_);
+Dog::Dog(const Dog& other)
+  : Animal(other), brain_(new Brain(*other.brain_)) {
   std::cout << std::setw(10) << DOG_PREFIX << "Copy constructor" << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& other) {
   if (this != &other) {
     Animal::operator=(other);
-    delete brain_;
-    brain_ = new Brain(*other.brain_);
+    *brain_ = *other.brain_;
   }
   std::cout << std::setw(10) << DOG_PREFIX
             << "Copy assignment operator" << std::endl;
@@ -46,7 +45,7 @@ void Dog::makeSound() const {
 }
 
 void Dog::getBrain(int index) const {
-  std::cout << brain_->GetIdeas(index) << std::endl;
+  std::cout << std::setw(10) << DOG_PREFIX << brain_->GetIdeas(index) << std::endl;
 }
 
 void Dog::setBrain(int index, const std::string& str) {

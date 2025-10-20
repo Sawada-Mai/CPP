@@ -17,8 +17,8 @@ Dog::Dog(const std::string& type)
   std::cout << std::setw(10) << DOG_PREFIX << "String constructor" << std::endl;
 }
 
-Dog::Dog(const Dog& other) {
-  *this = other;
+Dog::Dog(const Dog& other)
+  : Animal(other) {
   std::cout << std::setw(10) << DOG_PREFIX << "Copy constructor" << std::endl;
 }
 
