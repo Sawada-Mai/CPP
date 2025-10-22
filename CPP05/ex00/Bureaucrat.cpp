@@ -1,0 +1,67 @@
+// Copyright 2025 msawada
+
+#include <iostream>
+#include "Bureaucrat.hpp"
+
+Bureaucrat::Bureaucrat(const std::string& name, int grade)
+  : name_(name) {
+  if (grade < GRADE_HIGH) {
+    throw GradeTooHighException();
+  } else if (grade > GRADE_LOW) {
+    throw GradeTooLowException();
+  }
+  grade_ = grade;
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat& other)
+  : name_(other.name_), grade_(other.grade_) {
+}
+
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
+  if (this != &other) {
+    grade_ = other.grade_;
+  }
+  return *this;
+}
+
+Bureaucrat::~Bureaucrat() {
+}
+
+// Getter
+const std::string& Bureaucrat::getName() const {
+  return name_;
+}
+
+int Bureaucrat::getGrade() const {
+  return grade_;
+}
+
+// Change of grade
+void Bureaucrat::UpGrade() {
+  if (grade_ <= GRADE_HIGH) {
+    throw GradeTooHighException();
+  }
+  grade_--;
+}
+
+void Bureaucrat::DownGrade() {
+  if (grade_ >= GRADE_LOW) {
+    throw GradeTooLowException();
+  }
+  grade_++;
+}
+
+// Exception
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
+  return "Grade is too high.";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw() {
+  return "Grade is too low.";
+}
+
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj) {
+  os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".";
+  return os;
+}

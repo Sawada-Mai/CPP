@@ -146,7 +146,7 @@ const Fixed& Fixed::max(const Fixed& a, const Fixed& b) {
 }
 
 
-std::ostream& operator<<(std::ostream& os, Fixed const& obj) {
+std::ostream& operator<<(std::ostream& os, const Fixed& obj) {
   os << obj.toFloat();
   return os;
 }
