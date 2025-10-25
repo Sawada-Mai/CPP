@@ -1,3 +1,5 @@
+// Copyright 2025 msawada
+
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 

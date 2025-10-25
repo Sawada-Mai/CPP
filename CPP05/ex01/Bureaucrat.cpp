@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade)
   : name_(name) {
@@ -49,6 +50,15 @@ void Bureaucrat::DownGrade() {
     throw Bureaucrat::GradeTooLowException();
   }
   grade_++;
+}
+
+void Bureaucrat::signForm(Form &form) {
+  try {
+    form.beSigned(*this);
+    std::cout << name_ << " signed " << form.getName() << std::endl;
+  } catch (const std::exception& e) {
+    std::cerr << name_ <<  " couldn't sign " << std::endl;
+  }
 }
 
 // Exception

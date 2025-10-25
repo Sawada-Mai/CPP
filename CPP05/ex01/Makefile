@@ -1,7 +1,8 @@
 NAME = bureaucrat
 
 SRC = main.cpp \
-			Bureaucrat.cpp
+			Bureaucrat.cpp \
+			Form.cpp
 
 OBJDIR = obj
 OBJ =  $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))

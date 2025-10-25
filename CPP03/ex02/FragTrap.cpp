@@ -12,8 +12,8 @@ static void PrintPrefix(std::string name) {
 FragTrap::FragTrap(std::string name)
   : ClapTrap(name) {
   SetHitPoints(100);
-  SetEnergyPoints(50);
-  SetAttackDamage(20);
+  SetEnergyPoints(100);
+  SetAttackDamage(30);
   PrintPrefix(GetName());
   std::cout << " constructed." << std::endl;
 }

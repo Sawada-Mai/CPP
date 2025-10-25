@@ -1,3 +1,5 @@
+// Copyright 2025 msawada
+
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
@@ -5,6 +7,8 @@
 #include <iostream>
 #include <string>
 #include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
  private:
