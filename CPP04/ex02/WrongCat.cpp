@@ -42,10 +42,10 @@ void WrongCat::makeSound() const {
   std::cout << std::setw(10) << WRONG_CAT_PREFIX << "Wrong Meow" << std::endl;
 }
 
-void WrongCat::getBrain(int index) const {
-  std::cout << brain_->GetIdeas(index) << std::endl;
-}
-
 void WrongCat::setBrain(int index, const std::string& str) {
   brain_->SetIdeas(index, str);
+}
+
+void WrongCat::getBrain(int index) const {
+  std::cout << brain_->GetIdeas(index) << std::endl;
 }

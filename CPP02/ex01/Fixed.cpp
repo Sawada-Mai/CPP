@@ -37,12 +37,12 @@ Fixed::~Fixed() {
   std::cout << "Destructor called\n";
 }
 
-int Fixed::getRawBits() const {
-  return raw_bits_;
-}
-
 void Fixed::setRawBits(int const raw) {
   raw_bits_ = raw;
+}
+
+int Fixed::getRawBits() const {
+  return raw_bits_;
 }
 
 float Fixed::toFloat() const {

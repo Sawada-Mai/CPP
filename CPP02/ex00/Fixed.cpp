@@ -26,12 +26,12 @@ Fixed::~Fixed() {
   std::cout << "Destructor called\n";
 }
 
-int Fixed::getRawBits() const {
-  std::cout << "getRawBits member function called\n";
-  return raw_bits_;
-}
-
 void Fixed::setRawBits(int const raw) {
   raw_bits_ = raw;
   std::cout << "setRawBits member function called\n";
+}
+
+int Fixed::getRawBits() const {
+  std::cout << "getRawBits member function called\n";
+  return raw_bits_;
 }

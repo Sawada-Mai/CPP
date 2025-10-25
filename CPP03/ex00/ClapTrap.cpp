@@ -40,22 +40,6 @@ ClapTrap::~ClapTrap() {
 }
 
 // データ設定関数
-const std::string& ClapTrap::GetName() const {
-  return name_;
-}
-
-const unsigned int& ClapTrap::GetHitPoints() const {
-  return hit_points_;
-}
-
-const unsigned int& ClapTrap::GetEnergyPoints() const {
-  return energy_points_;
-}
-
-const unsigned int& ClapTrap::GetAttackDamage() const {
-  return attack_damage_;
-}
-
 void ClapTrap::SetName(const std::string& name) {
   name_ = name;
 }
@@ -70,6 +54,23 @@ void ClapTrap::SetEnergyPoints(const unsigned int energy_points) {
 
 void ClapTrap::SetAttackDamage(const unsigned int attack_damage) {
   attack_damage_ = attack_damage;
+}
+
+// データ取得関数
+const std::string& ClapTrap::GetName() const {
+  return name_;
+}
+
+const unsigned int& ClapTrap::GetHitPoints() const {
+  return hit_points_;
+}
+
+const unsigned int& ClapTrap::GetEnergyPoints() const {
+  return energy_points_;
+}
+
+const unsigned int& ClapTrap::GetAttackDamage() const {
+  return attack_damage_;
 }
 
 // アクション系関数

@@ -30,10 +30,10 @@ Brain::~Brain() {
   std::cout << std::setw(10) << BRAIN_PREFIX << "Destructor" << std::endl;
 }
 
-const std::string& Brain::GetIdeas(const int index) const {
-  return ideas_[index];
-}
-
 void Brain::SetIdeas(const int index, const std::string& str) {
   ideas_[index] = str;
+}
+
+const std::string& Brain::GetIdeas(const int index) const {
+  return ideas_[index];
 }
