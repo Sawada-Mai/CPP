@@ -49,5 +49,6 @@ void Cat::setBrain(int index, const std::string& str) {
 }
 
 void Cat::getBrain(int index) const {
-  std::cout << std::setw(10) << CAT_PREFIX << brain_->GetIdeas(index) << std::endl;
+  std::cout << std::setw(10) << CAT_PREFIX
+            << brain_->GetIdeas(index) << std::endl;
 }

@@ -12,7 +12,9 @@ Brain::Brain() {
 }
 
 Brain::Brain(const Brain& other) {
-  *this = other;
+  for (int i = 0; i < 100; i++) {
+    ideas_[i] = other.ideas_[i];
+  }
   std::cout << std::setw(10) << BRAIN_PREFIX
             << "Copy constructor" << std::endl;
 }

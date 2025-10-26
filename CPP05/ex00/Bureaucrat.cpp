@@ -1,6 +1,7 @@
 // Copyright 2025 msawada
 
 #include <iostream>
+#include <string>
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade)

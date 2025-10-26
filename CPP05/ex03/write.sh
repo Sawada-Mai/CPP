@@ -3,8 +3,9 @@
 CLASS_NAME=$1
 UPPER_NAME=$(echo $CLASS_NAME | tr '[:lower:]' '[:upper:]')
 
-# 繝倥ャ繝繝ｼ繝輔ぃ繧､繝ｫ逕滓�
 cat > ${CLASS_NAME}.hpp << EOF
+// Copyright 2025 msawada
+
 #ifndef ${UPPER_NAME}_HPP
 #define ${UPPER_NAME}_HPP
 
@@ -21,8 +22,9 @@ class ${CLASS_NAME} {
 #endif
 EOF
 
-# 螳溯｣�ヵ繧｡繧､繝ｫ逕滓�
 cat > ${CLASS_NAME}.cpp << EOF
+// Copyright 2025 msawada
+
 #include "${CLASS_NAME}.hpp"
 
 ${CLASS_NAME}::${CLASS_NAME}() {
@@ -30,7 +32,7 @@ ${CLASS_NAME}::${CLASS_NAME}() {
 }
 
 ${CLASS_NAME}::${CLASS_NAME}(const ${CLASS_NAME}& other) {
-  *this = other;
+  //*this = other;
 }
 
 ${CLASS_NAME}& ${CLASS_NAME}::operator=(const ${CLASS_NAME}& other) {

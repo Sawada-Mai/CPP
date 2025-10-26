@@ -21,10 +21,10 @@ int main() {
   const size_t SIZE = 2;
   const Animal* list[SIZE];
 
-  for(size_t i = 0; i < (SIZE / 2); i++) {
+  for (size_t i = 0; i < (SIZE / 2); i++) {
     list[i] = new Dog;
   }
-  for(size_t i = (SIZE / 2); i < SIZE; i++) {
+  for (size_t i = (SIZE / 2); i < SIZE; i++) {
     list[i] = new Cat;
   }
 

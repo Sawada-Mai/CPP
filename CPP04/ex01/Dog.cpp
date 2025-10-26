@@ -49,5 +49,6 @@ void Dog::setBrain(int index, const std::string& str) {
 }
 
 void Dog::getBrain(int index) const {
-  std::cout << std::setw(10) << DOG_PREFIX << brain_->GetIdeas(index) << std::endl;
+  std::cout << std::setw(10) << DOG_PREFIX
+            << brain_->GetIdeas(index) << std::endl;
 }

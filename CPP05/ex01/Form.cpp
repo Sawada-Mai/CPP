@@ -1,7 +1,7 @@
-
+// Copyright 2025 msawada
 
 #include <iostream>
-#include <ostream>
+#include <string>
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
@@ -38,24 +38,31 @@ int Form::getSignGrade() const {
   return grade_to_sign_;
 }
 
+int Form::getExecuteGrade() const {
+  return grade_to_execute_;
+}
+
 // Sign Action
-void Form::beSigned(Bureaucrat& obj) {
-  if (obj.getGrade() > grade_to_sign_) {
+void Form::beSigned(const Bureaucrat& signer) {
+  if (signer.getGrade() > grade_to_sign_) {
     throw GradeTooLowException();
+  } else if (signed_ == true) {
+    throw AlreadySignedException();
   }
   signed_ = true;
 }
 
 // Exception
-const char* Form::GradeTooHighException::what() const throw() {
-  return "Form: Grade is too high.";
-}
-
 const char* Form::GradeTooLowException::what() const throw() {
-  return "Form: Grade is too low.";
+  return "grade is too low.";
 }
 
-// std::ostream& operator<<(std::ostream& os, const Form& obj) {
-//   os << obj.getName() << ", bureaucrat grade " << obj.getSignGrade() << ".";
-//   return os;
-// }
+const char* Form::AlreadySignedException::what() const throw() {
+  return "it's already signed";
+}
+
+std::ostream& operator<<(std::ostream& os, const Form& obj) {
+  os << obj.getName() << ", grade_to_sign " << obj.getSignGrade()
+     << ", grade_to_sign " << obj.getExecuteGrade() << ".";
+  return os;
+}
