@@ -3,6 +3,11 @@
 #ifndef AFORM_HPP
 #define AFORM_HPP
 
+#include <iostream>
+#include <string>
+
+class Bureaucrat;
+
 class AForm {
  private:
   const std::string name_;
@@ -15,13 +20,13 @@ class AForm {
   AForm();
 
  protected:
-  virtual void executeImpl() const = 0;
+  virtual void executeImpl(const std::string& target) const = 0;
 
  public:
   AForm(const std::string& name, const std::string& target, int grade_to_sign, int grade_to_execute);
   AForm(const AForm& other);
   AForm& operator=(const AForm& other);
-  ~AForm();
+  virtual ~AForm();
 
   const std::string& getName() const;
   const std::string& getTarget() const;

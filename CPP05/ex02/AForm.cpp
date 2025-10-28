@@ -1,6 +1,7 @@
 // Copyright 2025 msawada
 
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
 
 AForm::AForm(const std::string& name, const std::string& target, int grade_to_sign, int grade_to_execute)
   : name_(name),
@@ -56,13 +57,13 @@ void AForm::beSigned(const Bureaucrat& signer) {
 }
 
 // Execute Action
-void execute(const Bureaucrat& executor) const {
+void AForm::execute(const Bureaucrat& executor) const {
   if (executor.getGrade() > grade_to_execute_) {
     throw GradeTooLowException();
   } else if (signed_ == false) {
     throw NotSignedException();
   }
-  executeImpl(executor);
+  executeImpl(target_);
 }
 
 // Exception

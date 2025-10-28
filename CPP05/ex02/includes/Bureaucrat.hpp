@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 
-class Form;
+class AForm;
 
 class Bureaucrat {
  private:
@@ -29,7 +29,8 @@ class Bureaucrat {
   void UpGrade();
   void DownGrade();
 
-  void signForm(Form &obj);
+  void signForm(AForm &obj);
+  void executeForm(AForm &obj);
 
   class GradeTooHighException : public std::exception {
    public :

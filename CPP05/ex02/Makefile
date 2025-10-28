@@ -2,7 +2,10 @@ NAME = bureaucrat
 
 SRC = main.cpp \
 			Bureaucrat.cpp \
-			Form.cpp
+			AForm.cpp \
+			PresidentialPardonForm.cpp \
+			RobotomyRequestForm.cpp \
+			ShrubberyCreationForm.cpp
 
 OBJDIR = obj
 OBJ =  $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
