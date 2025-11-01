@@ -30,5 +30,5 @@ void RobotomyRequestForm::executeImpl(const std::string& target) const {
   if (std::rand() % 2)
     std::cout << target << " robotomized successfully!" << std::endl;
   else
-    std::cout << target << " failed." << std::endl; 
+    std::cout << target << " failed." << std::endl;
 }

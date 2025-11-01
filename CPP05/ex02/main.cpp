@@ -1,3 +1,4 @@
+// Copyright 2025 msawada
 
 #include <iostream>
 #include "Bureaucrat.hpp"
@@ -8,8 +9,8 @@
 int main() {
 
     try {
-        Bureaucrat alice("Alice", 1);    // 最高権限の官僚
-        Bureaucrat bob("Bob", 150);      // 一番下の官僚
+        Bureaucrat alice("Alice", 1);
+        Bureaucrat bob("Bob", 150);
 
         ShrubberyCreationForm shrub("home");
         RobotomyRequestForm robot("Bender");
@@ -26,7 +27,7 @@ int main() {
         alice.executeForm(pardon);
 
         std::cout << "\n=== Executing with Low-Grade Bureaucrat (Bob) ===" << std::endl;
-        bob.executeForm(shrub); // 失敗例（例外メッセージ確認用）
+        bob.executeForm(shrub);
     }
     catch (std::exception &e) {
         std::cerr << "Exception caught in main: " << e.what() << std::endl;

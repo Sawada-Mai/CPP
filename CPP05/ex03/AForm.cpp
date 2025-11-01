@@ -4,8 +4,7 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm(const std::string& name, const std::string& target,
-    int grade_to_sign, int grade_to_execute)
+AForm::AForm(const std::string& name, const std::string& target, int grade_to_sign, int grade_to_execute)
   : name_(name),
     target_(target),
     signed_(false),
