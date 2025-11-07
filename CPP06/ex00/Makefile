@@ -1,6 +1,7 @@
 NAME = ex00
 
 SRC = main.cpp \
+			Conversion.cpp
 
 OBJDIR = obj
 OBJ =  $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))

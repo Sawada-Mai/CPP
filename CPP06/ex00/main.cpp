@@ -1,16 +1,14 @@
-
+// Copyright 2025 msawada
 
 #include <iostream>
 #include <string>
+#include "Conversion.hpp"
 
-int main(void)
-{
-  std::string s = "42.0f";
-
-  
-  std::cout << std::stod(s) << std::endl;
-
-  std::cout << std::stof(s) << std::endl;
-
-  std::cout << std::stoi(s) << std::endl;
+int main(int argc, char* argv[]) {
+  if (argc != 2) {
+    std::cout << "Usage: ./ex00 <number>" << std::endl;
+    return 1;
+  }
+  Conversion::Convert(argv[1]);
+  return 0;
 }
