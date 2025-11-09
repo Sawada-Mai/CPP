@@ -2,6 +2,7 @@
 
 #include <cstdio>
 #include <cstdlib>
+#include <iomanip>
 #include <iostream>
 #include <limits>
 #include <string>
@@ -10,7 +11,7 @@
 void Conversion::PrintChar(double num, PseudoType type) {
   std::cout << "char: ";
 
-  if (type != kTypePseudoNone) {
+  if (type != kTypePseudoNone && type != kTypePseudoChar) {
     std::cout << "impossible" << std::endl;
     return;
   }
@@ -30,7 +31,7 @@ void Conversion::PrintChar(double num, PseudoType type) {
 void Conversion::PrintInt(double num, PseudoType type) {
   std::cout << "int: ";
 
-  if (type != kTypePseudoNone) {
+  if (type != kTypePseudoNone && type != kTypePseudoChar) {
     std::cout << "impossible" << std::endl;
     return;
   }
@@ -48,6 +49,11 @@ void Conversion::PrintFloat(double num, PseudoType type) {
   switch (type) {
     case kTypePseudoNone:
       break;
+    case kTypePseudoChar:
+      break;
+    case kTypePseudoStr:
+      std::cout << "impossible" << std::endl;
+      return;
     case kTypePseudoNan:
       std::cout << "nanf" << std::endl;
       return;
@@ -67,10 +73,9 @@ void Conversion::PrintFloat(double num, PseudoType type) {
 
   float float_num = static_cast<float>(num);
 
-  if (float_num != static_cast<int>(float_num))
-    std::cout << float_num << "f" << std::endl;
-  else
-    std::cout << float_num << ".0f" << std::endl;
+  std::cout.setf(std::ios::fixed);
+  std::cout << std::setprecision(1) << float_num << "f" << std::endl;
+  std::cout.unsetf(std::ios::fixed);
 }
 
 void Conversion::PrintDouble(double num, PseudoType type) {
@@ -79,6 +84,11 @@ void Conversion::PrintDouble(double num, PseudoType type) {
   switch (type) {
     case kTypePseudoNone:
       break;
+    case kTypePseudoChar:
+      break;
+    case kTypePseudoStr:
+      std::cout << "impossible" << std::endl;
+      return;
     case kTypePseudoNan:
       std::cout << "nan" << std::endl;
       return;
@@ -98,10 +108,30 @@ void Conversion::PrintDouble(double num, PseudoType type) {
 
   double double_num = static_cast<double>(num);
 
-  if (double_num != static_cast<int>(double_num))
-    std::cout << double_num << std::endl;
-  else
-    std::cout << double_num << ".0" << std::endl;
+  std::cout.setf(std::ios::fixed);
+  std::cout << std::setprecision(1) << double_num << std::endl;
+  std::cout.unsetf(std::ios::fixed);
+}
+
+static bool StrIsdigit(const std::string str)
+{
+  int dot_count = 0;
+  int float_count = 0;
+  int char_count = 0;
+
+  for(size_t i = 0; i < str.size(); i++) {
+    if (str[i] == '.')
+      dot_count++;
+    else if (str[i] == 'f')
+      float_count++;
+    else if (!isdigit(str[i]))
+      char_count++;
+  }
+  if (dot_count > 1 || float_count > 1 || char_count > 1)
+    return false;
+  else if (float_count > 0 && str[str.size() - 1] != 'f')
+    return false;
+  return true;
 }
 
 Conversion::PseudoType Conversion::CheckType(const std::string str) {
@@ -111,29 +141,26 @@ Conversion::PseudoType Conversion::CheckType(const std::string str) {
     return kTypePseudoPosInf;
   else if (str == "-inf" || str == "-inff")
     return kTypePseudoNegInf;
-  else
-    return kTypePseudoNone;
-}
-
-double Conversion::StringToDouble(const std::string& str) {
-  if (!str[str.size() - 1] == 'f' || str.find('.') != std::string:npos) {
-    return std::atof(str);
-  }
-  else
-    return static_cast<double>(atoi(str));
+  else if (str.size() == 1 && !isdigit(str[0]))
+    return kTypePseudoChar;
+  else if (!StrIsdigit(str))
+    return kTypePseudoStr;
+  return kTypePseudoNone;
 }
 
 void Conversion::Convert(const std::string& str) {
   PseudoType type = CheckType(str);
   double num = 0;
 
-  if (type == kTypePseudoNone)
-    num = StringToDouble(str);
+
+  if (type == kTypePseudoNone) {
+    num = static_cast<double>(std::atof(str.c_str()));
+  } else if (type == kTypePseudoChar) {
+    num = static_cast<double>(str[0]);
+  }
 
   PrintChar(num, type);
   PrintInt(num, type);
   PrintFloat(num, type);
   PrintDouble(num, type);
-
-  // std::cout << std::atof("4.2f") << std::endl;
 }

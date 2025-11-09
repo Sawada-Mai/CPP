@@ -16,7 +16,9 @@ class Conversion {
     kTypePseudoNone,
     kTypePseudoNan,
     kTypePseudoPosInf,
-    kTypePseudoNegInf
+    kTypePseudoNegInf,
+    kTypePseudoChar,
+    kTypePseudoStr
   };
 
   static void PrintChar(double num, PseudoType type);
