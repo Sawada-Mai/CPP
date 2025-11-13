@@ -73,9 +73,7 @@ void Conversion::PrintFloat(double num, PseudoType type) {
 
   float float_num = static_cast<float>(num);
 
-  std::cout.setf(std::ios::fixed);
-  std::cout << std::setprecision(1) << float_num << "f" << std::endl;
-  std::cout.unsetf(std::ios::fixed);
+  std::cout << float_num << "f" << std::endl;
 }
 
 void Conversion::PrintDouble(double num, PseudoType type) {
@@ -108,9 +106,7 @@ void Conversion::PrintDouble(double num, PseudoType type) {
 
   double double_num = static_cast<double>(num);
 
-  std::cout.setf(std::ios::fixed);
-  std::cout << std::setprecision(1) << double_num << std::endl;
-  std::cout.unsetf(std::ios::fixed);
+  std::cout << double_num << std::endl;
 }
 
 static bool StrIsdigit(const std::string str)
