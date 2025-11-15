@@ -1,7 +1,6 @@
-NAME = base
+NAME = iter
 
 SRC = main.cpp \
-			Base.cpp
 
 OBJDIR = obj
 OBJ =  $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
