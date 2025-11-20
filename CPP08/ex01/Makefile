@@ -1,6 +1,7 @@
 NAME = array
 
 SRC = main.cpp \
+			Span.cpp
 
 OBJDIR = obj
 OBJ =  $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
