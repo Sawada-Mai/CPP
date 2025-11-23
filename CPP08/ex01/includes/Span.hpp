@@ -21,7 +21,7 @@ class Span {
   int shortestSpan() const;
   int longestSpan() const;
 
-  void AddRange(int first, int last);
+  void AddRange(std::vector<int>::iterator first, std::vector<int>::iterator last);
 };
 
 #endif

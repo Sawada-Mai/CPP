@@ -21,7 +21,7 @@ int main(void) {
   AForm* rrf;
 
   PutLine("Shrubbery Creation");
-  rrf = someRandomIntern.makeForm("robotomy request", "TARGET");
+  rrf = someRandomIntern.makeForm("shrubbery creation", "TARGET");
   if (rrf)
     std::cout << "Form created: " << rrf->getName() << "\nTarget: " << rrf->getTarget() << std::endl;
   delete rrf;
@@ -33,7 +33,7 @@ int main(void) {
   delete rrf;
 
   PutLine("Presidential Pardon");
-  rrf = someRandomIntern.makeForm("robotomy request", "TARGET");
+  rrf = someRandomIntern.makeForm("presidential pardon", "TARGET");
   if (rrf)
     std::cout << "Form created: " << rrf->getName() << "\nTarget: " << rrf->getTarget() << std::endl;
   delete rrf;

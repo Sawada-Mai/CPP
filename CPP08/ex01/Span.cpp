@@ -63,14 +63,13 @@ int Span::longestSpan() const {
   }
 }
 
-void AddRange(std::vector<int> first, std::vector<int> last) {
-  if ((last - first) > N)
-    throw std::runtime_error("Too many range");
-  else if (first <= 0 || last <= 0)
-    throw std::runtime_error("");
+void Span::AddRange(std::vector<int>::iterator first, std::vector<int>::iterator last) {
+  if (first > last)
+    throw std::out_of_range("Invalid iterator range.");
 
-  while (first < last) {
-    list_[first] =
-    first++;
-  }
+  std::size_t count = std::distance(first, last);
+  if (list_.size() + count > N)
+    throw std::runtime_error("Too many elemens in range");
+
+  list_.insert(list_.end(), first, last);
 }
