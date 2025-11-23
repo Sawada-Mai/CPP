@@ -21,7 +21,7 @@ void Conversion::PrintChar(double num, PseudoType type) {
     return;
   }
   unsigned char c = static_cast<unsigned char>(num);
-  if (!isprint(c)) {
+  if (!std::isprint(c)) {
     std::cout << "Non displayable" << std::endl;
     return;
   }
