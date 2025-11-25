@@ -72,8 +72,12 @@ void Conversion::PrintFloat(double num, PseudoType type) {
   }
 
   float float_num = static_cast<float>(num);
+  int int_num = static_cast<int>(num);
 
-  std::cout << float_num << "f" << std::endl;
+  if (float_num != static_cast<float>(int_num))
+    std::cout << float_num << "f" << std::endl;
+  else
+    std::cout << std::fixed << std::setprecision(1) << float_num << "f" << std::endl;
 }
 
 void Conversion::PrintDouble(double num, PseudoType type) {

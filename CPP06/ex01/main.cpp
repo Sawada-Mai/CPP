@@ -1,7 +1,6 @@
 // Copyright 2025 msawada
 
 #include <iostream>
-#include "Data.hpp"
 #include "Serializer.hpp"
 
 
