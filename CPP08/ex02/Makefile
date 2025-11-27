@@ -1,4 +1,4 @@
-NAME = array
+NAME = ex02
 
 SRC = main.cpp \
 
