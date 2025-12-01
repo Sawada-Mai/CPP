@@ -5,11 +5,17 @@
 
 #include <iostream>
 
-template <class T, class F>
-void iter(T* list, std::size_t len, void (*f)(T&)) {
+template <class T>
+void iter(T* list, std::size_t const len, void (*f)(T&)) {
   for (std::size_t i = 0; i < len; i++) {
     f(list[i]);
-    std::cout << list[i] << std::endl;
+  }
+}
+
+template <class T>
+void iter(T const* list, std::size_t const len, void (*f)(T const&)) {
+  for (std::size_t i = 0; i < len; i++) {
+    f(list[i]);
   }
 }
 
