@@ -14,13 +14,13 @@ Base * generate(void) {
 
   switch(random_num) {
     case 0:
-      std::cout << "generat: A" << std::endl;
+      std::cout << "generate: A" << std::endl;
       return new A();
     case 1:
-      std::cout << "generat: B" << std::endl;
+      std::cout << "generate: B" << std::endl;
       return new B();
     case 2:
-      std::cout << "generat: C" << std::endl;
+      std::cout << "generate: C" << std::endl;
       return new C();
     default:
       return NULL;
