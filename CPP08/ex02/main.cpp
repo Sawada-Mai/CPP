@@ -1,6 +1,7 @@
 // Copyright 2025 msawada
 
 #include <iostream>
+#include <string>
 #include "MutantStack.hpp"
 
 void PutLine(std::string str) {
@@ -12,26 +13,36 @@ void PutLine(std::string str) {
 }
 
 int main(void) {
-  MutantStack<int> mstack;
-  mstack.push(5);
-  mstack.push(17);
-  std::cout << mstack.top() << std::endl;
-  mstack.pop();
-  std::cout << mstack.size() << std::endl;
-  mstack.push(3);
-  mstack.push(5);
-  mstack.push(737);
-  //[...]
-  mstack.push(0);
-  MutantStack<int>::iterator it = mstack.begin();
-  MutantStack<int>::iterator ite = mstack.end();
-  ++it;
-  --it;
-  while (it != ite)
   {
-    std::cout << *it << std::endl;
-    ++it;
+    PutLine("{4, 2, 42}");
+    MutantStack<int> mstack;
+
+    mstack.push(4);
+    mstack.push(2);
+    mstack.push(42);
+    std::cout << "top = " << mstack.top() << std::endl;
+    std::cout << "size = " << mstack.size() << std::endl;
+    // 17が削除される
+    mstack.pop();
+    std::cout << "size = " << mstack.size() << " (1個削除後)" << std::endl;
   }
-  std::stack<int> s(mstack);
+
+  {
+    PutLine("{4, 2, 42, 8}");
+    MutantStack<int> mstack;
+
+    mstack.push(4);
+    mstack.push(2);
+    mstack.push(42);
+    mstack.push(8);
+    MutantStack<int>::iterator it = mstack.begin();
+    MutantStack<int>::iterator ite = mstack.end();
+    ++it;
+    --it;
+    while (it != ite) {
+      std::cout << *it << std::endl;
+      ++it;
+    }
+  }
   return 0;
 }

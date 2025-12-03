@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <iostream>
+#include <vector>
 #include "Span.hpp"
 
 Span::Span(unsigned int n)
@@ -25,9 +26,7 @@ Span::~Span() {
 
 
 void Span::addNumber(unsigned int num) {
-
-  if (list_.size() < N)
-  {
+  if (list_.size() < N) {
     list_.push_back(num);
     return;
   } else {

@@ -18,4 +18,11 @@ int main(void) {
   } catch (const std::exception& e) {
     std::cerr << e.what() << std::endl;
   }
+
+  try {
+    std::vector<int>::iterator result = easyfind(x, 10);
+    std::cout << *result << std::endl;
+  } catch (const std::exception& e) {
+    std::cerr << e.what() << std::endl;
+  }
 }
