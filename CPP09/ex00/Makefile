@@ -1,6 +1,7 @@
 NAME = btc
 
 SRC = main.cpp \
+			BitcoinExchange.cpp
 
 OBJDIR = obj
 OBJ =  $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
