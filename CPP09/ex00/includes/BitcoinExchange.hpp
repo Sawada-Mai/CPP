@@ -3,6 +3,8 @@
 #ifndef BITCOINEXCHANGE_HPP
 #define BITCOINEXCHANGE_HPP
 
+#include <map>
+
 class BitcoinExchange {
  private:
 
@@ -14,6 +16,8 @@ class BitcoinExchange {
 
   int btc(char* file);
   void PrintRate(const std::map<std::string, double> &data_map, const std::string &line_input);
+  bool IsValidDateFormat(const std::string& date);
+  bool StrIsdigit(const std::string& str);
 };
 
 #endif
