@@ -1,6 +1,7 @@
-NAME = ex01
+NAME = RPN
 
 SRC = main.cpp \
+			RPN.cpp
 
 OBJDIR = obj
 OBJ =  $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))

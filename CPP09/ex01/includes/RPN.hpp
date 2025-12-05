@@ -5,12 +5,17 @@
 
 class RPN {
  private:
+  RPN(const RPN& other);
+  RPN& operator=(const RPN& other);
 
  public:
   RPN();
-  RPN(const RPN& other);
-  RPN& operator=(const RPN& other);
   ~RPN();
+  int PrintResult(const std::string& str);
+  bool IsSign(char c);
+  bool StrIsFormula(const std::string& str);
+  bool Argo(const std::string& str);
+  int Calculate(int num_1, int num_2, char c);
 };
 
 #endif

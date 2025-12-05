@@ -1,6 +1,5 @@
 // Copyright 2025 msawada
 
-#include <fstream>
 #include <iostream>
 #include "BitcoinExchange.hpp"
 

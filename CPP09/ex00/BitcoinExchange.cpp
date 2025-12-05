@@ -10,20 +10,30 @@
 BitcoinExchange::BitcoinExchange() {
 }
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange& other) {
-  *this = other;
-}
-
-BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other) {
-  if (this != &other) {
-  }
-  return *this;
-}
-
 BitcoinExchange::~BitcoinExchange() {
 }
 
-void BitcoinExchange::PrintConvertedRate(const std::map<std::string, double> &data_map, const std::string& date, int rate) {
+void BitcoinExchange::PrintConvertedRate(const std::map<std::string
+    , double> &data_map, const std::string& date, double value) {
+  std::map<std::string, double>::const_iterator line = data_map.lower_bound(date);
+
+  double result = value;
+
+  if (line != data_map.end() && line->first == date) {
+    result *= line->second;
+    std::cout << date << " => " << value << " = " << result << std::endl;
+    return;
+  }
+  
+  if (line != data_map.begin()) {
+    line--;
+    result *= line->second;
+    std::cout << date << " => " << value << " = " << result << std::endl;
+    return;
+  } else {
+    std::cout << "Error: Not found => " << date << std::endl;
+    return;
+  }
 }
 
 bool BitcoinExchange::StrIsdigit(const std::string& str) {
@@ -82,7 +92,7 @@ void BitcoinExchange::PrintRate(const std::map<std::string, double> &data_map, c
   size_t separator = line_input.find('|');
 
   if (separator == std::string::npos) {
-    std::cout << "Error: bad input_1 => " << line_input << std::endl;
+    std::cout << "Error: bad input => " << line_input << std::endl;
     return;
   }
 
@@ -94,9 +104,9 @@ void BitcoinExchange::PrintRate(const std::map<std::string, double> &data_map, c
   while (line_input[left_end - 1] == ' ')
     left_end--;
   std::string date = line_input.substr(left_start, left_end - left_start);
-  // std::cout << "{" << date << "}" << std::endl;
+
   if (!IsValidDateFormat(date)) {
-    std::cout << "Error: bad input_2 => " << line_input << std::endl;
+    std::cout << "Error: bad input => " << line_input << std::endl;
     return;
   }
 
@@ -114,11 +124,11 @@ void BitcoinExchange::PrintRate(const std::map<std::string, double> &data_map, c
 
 
   if (!StrIsdigit(number)) {
-    std::cout << "Error: bad input_3 => " << line_input << std::endl;
+    std::cout << "Error: bad input => " << line_input << std::endl;
     return;
   }
 
-  double rate = atof(number.c_str());
+  double rate = std::atof(number.c_str());
 
   if (rate < 0) {
     std::cout << "Error: not a positive number." << std::endl;
@@ -128,14 +138,14 @@ void BitcoinExchange::PrintRate(const std::map<std::string, double> &data_map, c
     return;
   }
 
-  std::cout << date << "=>" << rate << std::endl;
+  PrintConvertedRate(data_map, date, rate);
 }
 
 int BitcoinExchange::btc(char* file) {
   std::map<std::string, double> data_map;
 
   // test.csv read
-  std::ifstream ifs("test.csv");
+  std::ifstream ifs("data.csv");
   if (!ifs) {
     std::cerr << "Error: couldn't open data.csv." << std::endl;
     return 0;
@@ -148,7 +158,7 @@ int BitcoinExchange::btc(char* file) {
     size_t comma = line_db.find(',');
     std::string date = line_db.substr(0, comma);
 
-    double rate = atof(line_db.substr(comma + 1).c_str());
+    double rate = std::atof(line_db.substr(comma + 1).c_str());
 
     data_map[date] = rate;
   }
